@@ -326,14 +326,6 @@ async function criarPaciente() {
 }
 
 
-
-
-
-
-
-
-
-
 async function editarPaciente(paciente) {
   const nome = prompt('Nome:', paciente.nome || '');
   if (nome === null) return;
@@ -361,42 +353,6 @@ async function editarPaciente(paciente) {
     mostrarMensagem(erro.message, true, statusPaciente);
   }
 }
-
-
-
-// async function editarPaciente(paciente) {
-//   const telefone = prompt('Telefone:', paciente.telefone || '');
-//   if (telefone === null) return;
-
-//   try {
-//     await requisicao(`/pacientes/${encodeURIComponent(paciente._id)}`, {
-//       method: 'PUT',
-//       body: JSON.stringify({ telefone: telefone.trim() })
-//     });
-//     mostrarMensagem('Paciente atualizado com sucesso!', false, statusPaciente);
-//     await listarPacientes();
-//   } catch (erro) {
-//     mostrarMensagem(erro.message, true, statusPaciente);
-//   }
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

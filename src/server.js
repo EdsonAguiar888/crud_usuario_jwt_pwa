@@ -34,6 +34,8 @@ app.listen(process.env.PORT, () => {
 })
 
 
+
+
 mongoose.connect(process.env.MONGO_URI)
   .then(async () => {
     console.log('Conectado ao MongoDB com sucesso');

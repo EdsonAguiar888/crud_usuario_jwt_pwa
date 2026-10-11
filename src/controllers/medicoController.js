@@ -45,41 +45,6 @@ exports.criar = async (req, res) => {
 };
 
 
-
-
-// // Atualizar Médico Completo
-// router.put('/:id', authMiddleware, async (req, res) => {
-//   try {
-//     const { nome, email, senha, crm, especialidade, telefone, ativo } = req.body
-
-//     const dadosAtualizados = { nome, email, crm, especialidade, telefone, ativo }
-
-//     // Se o usuário informou uma nova senha, fazemos o hash dela antes de salvar
-//     if (senha) {
-//       const salt = await bcrypt.genSalt(10)
-//       dadosAtualizados.senha = await bcrypt.hash(senha, salt)
-//     }
-
-//     const medicoAtualizado = await Medico.findByIdAndUpdate(
-//       req.params.id,
-//       dadosAtualizados,
-//       { new: true, runValidators: true }
-//     ).select('-senha')
-
-//     if (!medicoAtualizado) return res.status(404).json({ mensagem: 'Médico não encontrado' })
-//     res.json({ mensagem: 'Médico atualizado com sucesso!', medico: medicoAtualizado })
-//   } catch (erro) {
-//     if (erro.code === 11000) {
-//       return res.status(409).json({ mensagem: 'E-mail ou CRM já cadastrados para outro usuário.' })
-//     }
-//     res.status(500).json({ mensagem: 'Erro ao atualizar médico', error: erro.message })
-//   }
-// })
-
-
-
-
-
 exports.atualizar = async (req, res) => {
   try {
     const { id } = req.params;
@@ -100,24 +65,6 @@ exports.atualizar = async (req, res) => {
     res.status(500).json({ message: 'Erro ao atualizar médico', error: erro.message });
   }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 exports.remover = async (req, res) => {
