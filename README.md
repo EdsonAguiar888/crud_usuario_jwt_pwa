@@ -196,4 +196,4 @@ A aplicação web possui interface responsiva e recursos de Progressive Web App:
 
 ## 📄 Licença
 
-Projeto de caráter didático. Defina aqui a licença de sua preferência (ex.: MIT).
+Projeto de caráter didático. 

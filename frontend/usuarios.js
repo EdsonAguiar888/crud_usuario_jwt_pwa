@@ -17,6 +17,7 @@ if (usuarioLogadoStr && userInfoDisplay) {
   }
 }
 
+
 function mostrarMensagem(mensagem, erro = false, elementoStatus = statusMedico) {
   if (!elementoStatus) return;
   elementoStatus.textContent = mensagem;
@@ -376,3 +377,10 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js')
     .catch(erro => console.error('Service Worker falhou:', erro));
 }
+
+
+
+
+
+
+
