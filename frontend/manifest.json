@@ -11,13 +11,13 @@
   "description": "Sistema de Gestão Clínica PWA com Node.js, Express e MongoDB",
   "icons": [
     {
-      "src": "/icons/doctor192.png",
+      "src": "https://cdn-icons-png.flaticon.com/512/3774/3774299.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "doctor512.png",
+      "src": "https://cdn-icons-png.flaticon.com/512/3774/3774299.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
