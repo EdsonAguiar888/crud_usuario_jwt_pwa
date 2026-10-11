@@ -1,0 +1,106 @@
+### ==========================================
+### VARIÁVEIS GLOBAIS
+### ==========================================
+@baseUrl = http://localhost:3000/api
+@contentType = application/json
+
+### Variável para armazenar o token JWT após o login (cole o token obtido aqui)
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhY2I5NzA3MzgzMGQ5NGI4ZDE4Y2M5ZSIsIm5vbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc5MTczNjQyMCwiZXhwIjoxNzkxNzQwMDIwfQ.bsaxwxDXDlZpR1iztskdEqQP3NyU0lK4fGijfJDdkdg
+
+
+### ==========================================
+### 1. AUTENTICAÇÃO (LOGIN DO ADMIN)
+### ==========================================
+# Use o admin padrão criado pelo seed para obter o token JWT
+# E-mail padrão do seed: admin@hospital.com | Senha: admin123
+# Copie o token retornado e cole na variável @token acima.
+POST {{baseUrl}}/auth/login
+Content-Type: {{contentType}}
+
+{
+  "email": "admin@hospital.com",
+  "senha": "admin123"
+}
+
+
+### ==========================================
+### 2. GESTÃO DE MÉDICOS
+### ==========================================
+
+### Listar todos os médicos
+GET {{baseUrl}}/medicos
+Authorization: Bearer {{token}}
+
+
+### Cadastrar um novo médico (Cria identidade e perfil simultaneamente)
+POST {{baseUrl}}/medicos
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+{
+  "nome": "Dr. Carlos Alberto",
+  "email": "carlos.medico@hospital.com",
+  "senha": "senhaSegura123",
+  "crm": "CRM-SP 998877",
+  "especialidade": "Cardiologia",
+  "telefone": "(11) 98888-1111"
+}
+
+
+### Atualizar dados de um médico (Substitua ID_DO_MEDICO pelo ObjectId real)
+PUT {{baseUrl}}/medicos/6acbbca6ee96d163ac86f7e6
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+{
+  "nome": "Dr. Carlos Alberto da Silva",
+  "especialidade": "Cardiologia Pediátrica",
+  "telefone": "(11) 98888-2222",
+  "ativo": true
+}
+
+
+### Excluir um médico (Substitua ID_DO_MEDICO pelo ObjectId real)
+DELETE {{baseUrl}}/medicos/ID_DO_MEDICO
+Authorization: Bearer {{token}}
+
+
+### ==========================================
+### 3. GESTÃO DE PACIENTES
+### ==========================================
+
+### Listar todos os pacientes
+GET {{baseUrl}}/pacientes
+Authorization: Bearer {{token}}
+
+
+### Cadastrar um novo paciente (Cria identidade e perfil simultaneamente)
+POST {{baseUrl}}/pacientes
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+{
+  "nome": "Ana Paula Souza",
+  "email": "ana.paciente@exemplo.com",
+  "senha": "senhaSegura123",
+  "dataNascimento": "1992-05-15",
+  "telefone": "(11) 97777-3333"
+}
+
+
+### Atualizar dados de um paciente (Substitua ID_DO_PACIENTE pelo ObjectId real)
+PUT {{baseUrl}}/pacientes/ID_DO_PACIENTE
+Authorization: Bearer {{token}}
+Content-Type: {{contentType}}
+
+{
+  "nome": "Ana Paula Souza Santos",
+  "dataNascimento": "1992-05-15",
+  "telefone": "(11) 97777-4444",
+  "ativo": true
+}
+
+
+### Excluir um paciente (Substitua ID_DO_PACIENTE pelo ObjectId real)
+DELETE {{baseUrl}}/pacientes/ID_DO_PACIENTE
+Authorization: Bearer {{token}}

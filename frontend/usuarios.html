@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111827">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/style.css">
+  <title>Portal Hospitalar | CRUD JWT</title>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <strong>Portal Hospitalar</strong>
+      <span class="topbar-subtitle">Gestão Clínica PWA</span>
+    </div>
+
+    <div class="user-profile-info">
+      <span id="userInfoDisplay" class="user-logged-name"></span>
+    </div>
+
+    <button class="secondary small" onclick="logout()">Sair</button>
+  </header>
+
+  <main class="dashboard">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">Painel Clínico</span>
+        <h1>Gerenciamento de Médicos e Pacientes</h1>
+        <p>Cadastre e gerencie profissionais de saúde e pacientes do sistema.</p>
+      </div>
+      <div class="tabs-nav">
+        <button class="primary small" id="btnTabMedicos" onclick="alternarAba('medicos')">Médicos</button>
+        <button class="secondary small" id="btnTabPacientes" onclick="alternarAba('pacientes')">Pacientes</button>
+      </div>
+    </section>
+
+    <!-- SEÇÃO: MÉDICOS -->
+    <div id="secaoMedicos" class="tab-content">
+      <section class="grid-dashboard">
+        <section class="card">
+          <h2>Cadastrar Médico</h2>
+          
+          <label for="medicoNome">Nome Completo</label>
+          <input id="medicoNome" placeholder="Dr. Nome Sobrenome">
+
+          <label for="medicoEmail">E-mail</label>
+          <input id="medicoEmail" type="email" placeholder="medico@hospital.com">
+
+          <label for="medicoSenha">Senha</label>
+          <input id="medicoSenha" type="password" placeholder="Senha de acesso">
+
+          <label for="medicoCrm">CRM</label>
+          <input id="medicoCrm" placeholder="Ex: CRM-SP 123456">
+
+          <label for="medicoEspecialidade">Especialidade</label>
+          <input id="medicoEspecialidade" placeholder="Ex: Cardiologia">
+
+          <label for="medicoTelefone">Telefone</label>
+          <input id="medicoTelefone" placeholder="(11) 98888-7777">
+
+          <button class="primary" onclick="criarMedico()">Cadastrar Médico</button>
+          <p id="statusMedico" class="message"></p>
+        </section>
+
+        <section class="card users-card">
+          <div class="section-title">
+            <div>
+              <h2>Médicos cadastrados</h2>
+              <p class="muted">Corpo clínico ativo na API.</p>
+            </div>
+            <button class="secondary small action-button" onclick="listarMedicos()">Atualizar</button>
+          </div>
+          <div id="medicos" class="user-list"></div>
+        </section>
+      </section>
+    </div>
+
+    <!-- SEÇÃO: PACIENTES -->
+    <div id="secaoPacientes" class="tab-content" style="display: none;">
+      <section class="grid-dashboard">
+        <section class="card">
+          <h2>Cadastrar Paciente</h2>
+
+          <label for="pacienteNome">Nome Completo</label>
+          <input id="pacienteNome" placeholder="Nome do paciente">
+
+          <label for="pacienteEmail">E-mail</label>
+          <input id="pacienteEmail" type="email" placeholder="paciente@exemplo.com">
+
+          <label for="pacienteSenha">Senha</label>
+          <input id="pacienteSenha" type="password" placeholder="Senha de acesso">
+
+          <label for="pacienteNascimento">Data de Nascimento</label>
+          <input id="pacienteNascimento" type="date">
+
+          <label for="pacienteTelefone">Telefone</label>
+          <input id="pacienteTelefone" placeholder="(11) 97777-6666">
+
+          <button class="primary" onclick="criarPaciente()">Cadastrar Paciente</button>
+          <p id="statusPaciente" class="message"></p>
+        </section>
+
+        <section class="card users-card">
+          <div class="section-title">
+            <div>
+              <h2>Pacientes cadastrados</h2>
+              <p class="muted">Base de pacientes registrados.</p>
+            </div>
+            <button class="secondary small action-button" onclick="listarPacientes()">Atualizar</button>
+          </div>
+          <div id="pacientes" class="user-list"></div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <script src="/usuarios.js"></script>
+</body>
+</html>
